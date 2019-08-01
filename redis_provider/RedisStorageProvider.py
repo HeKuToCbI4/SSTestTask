@@ -34,7 +34,8 @@ class RedisStorageProvider:
         self.r.delete(key)
 
     def add_key_value_pair(self, key, value, expiration=None):
-        self.r.set(key, value, ex=expiration)
+        self.r.hmset(key, value)
+        self.r.expire(key, expiration)
 
     def subscribe_to_events(self, channel: str = '__keyspace@0__:*'):
         if self.pub_sub is None:
