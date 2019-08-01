@@ -1,10 +1,18 @@
 import requests
 
+import config_data
+
 
 class TestIndex:
+    address = f'http://{config_data.vm_ip}:{config_data.flask_port}'
+
     def test_connection(self):
-        requests.get('http://192.168.0.106:80')
+        """
+        Smoke test to check is connection allowed.
+        :return:
+        """
+        requests.get(TestIndex.address)
 
     def test_index(self):
-        request_result = requests.get('http://192.168.0.106:80')
+        request_result = requests.get(TestIndex.address)
         assert request_result.content == b'Hello world!', 'Something went wrong.'
