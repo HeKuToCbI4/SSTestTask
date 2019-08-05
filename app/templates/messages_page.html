@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block content %}
+{% for message in messages %}
+    <div><p>{{ message.author }} says: <b>{{ message.body }}</b> at {{ message.date_posted }}</p></div><hr>
+{% endfor %}
+{% endblock %}
