@@ -42,7 +42,8 @@ class RedisStorageProvider:
             self.pub_sub = self.r.pubsub()
         self.pub_sub.psubscribe(channel)
         if self.server_thread is None:
-            self.server_thread = threading.Thread(target=self.serve_subscribed_messages, args=(self.pub_sub,), daemon=True)
+            self.server_thread = threading.Thread(target=self.serve_subscribed_messages, args=(self.pub_sub,),
+                                                  daemon=True)
             self.server_thread.start()
 
     def register_callback(self, callback, data_filters):

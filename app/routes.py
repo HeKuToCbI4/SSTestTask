@@ -1,9 +1,9 @@
 import datetime
 
-from flask import render_template, Response, stream_with_context
+from flask import Response, stream_with_context
 
 from app import app
-from app.Message import Message
+from redis_provider.Message import Message
 
 
 @app.route('/')
