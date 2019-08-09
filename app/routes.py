@@ -3,7 +3,7 @@ import datetime
 from flask import Response, stream_with_context
 
 from app import app
-from redis_provider.Message import Message
+from redis_provider import Message
 
 
 @app.route('/')
